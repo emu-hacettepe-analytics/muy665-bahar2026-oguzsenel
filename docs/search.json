@@ -1,0 +1,170 @@
+[
+  {
+    "objectID": "proje.html",
+    "href": "proje.html",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "",
+    "text": "Projemizle ilgili güncellemelerden haberdar olmak için bu xxxxx bağlantısındaki proje sayfamızı takip edin.\n(Aşağıdaki başlıklar örnek olarak verilmiştir; lütfen gerektiği şekilde düzenlemekten çekinmeyin.)"
+  },
+  {
+    "objectID": "proje.html#veri-kaynağı",
+    "href": "proje.html#veri-kaynağı",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "2.1 Veri Kaynağı",
+    "text": "2.1 Veri Kaynağı\nxxxxxx"
+  },
+  {
+    "objectID": "proje.html#veri-hakkında-genel-bilgiler",
+    "href": "proje.html#veri-hakkında-genel-bilgiler",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "2.2 Veri Hakkında Genel Bilgiler",
+    "text": "2.2 Veri Hakkında Genel Bilgiler\nxxxxxx"
+  },
+  {
+    "objectID": "proje.html#tercih-sebebi",
+    "href": "proje.html#tercih-sebebi",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "2.3 Tercih Sebebi",
+    "text": "2.3 Tercih Sebebi\nxxxxxx"
+  },
+  {
+    "objectID": "proje.html#ön-işleme",
+    "href": "proje.html#ön-işleme",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "2.4 Ön İşleme",
+    "text": "2.4 Ön İşleme\nxxxxxx"
+  },
+  {
+    "objectID": "proje.html#keşifsel-veri-analizi",
+    "href": "proje.html#keşifsel-veri-analizi",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "3.1 Keşifsel Veri Analizi",
+    "text": "3.1 Keşifsel Veri Analizi\nxxxxxx"
+  },
+  {
+    "objectID": "proje.html#trend-analizi",
+    "href": "proje.html#trend-analizi",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "3.2 Trend Analizi",
+    "text": "3.2 Trend Analizi\nxxxxxx"
+  },
+  {
+    "objectID": "proje.html#model-uydurma",
+    "href": "proje.html#model-uydurma",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "3.3 Model Uydurma",
+    "text": "3.3 Model Uydurma\nxxxxxx"
+  },
+  {
+    "objectID": "proje.html#sonuçlar",
+    "href": "proje.html#sonuçlar",
+    "title": "Proje X (proje adını yazınız)",
+    "section": "3.4 Sonuçlar",
+    "text": "3.4 Sonuçlar\nxxxxxx"
+  },
+  {
+    "objectID": "portfolyo.html",
+    "href": "portfolyo.html",
+    "title": "Portfolyo",
+    "section": "",
+    "text": "Bu sayfada, MUY665 İş Analitiği dersi 2025-2026 bahar dönemi boyunca yaptığım analitik çalışmalarımı sunmaktayım. Çalışmalarıma sol menüden ulaşabilirsiniz.\n\n\n\n Back to top",
+    "crumbs": [
+      "Portfolyo"
+    ]
+  },
+  {
+    "objectID": "portfolyo/calisma1.html",
+    "href": "portfolyo/calisma1.html",
+    "title": "Çalışma 1",
+    "section": "",
+    "text": "(Aşağıdakiler örnek olarak verilmiştir.)\nBu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.",
+    "crumbs": [
+      "Çalışma 1"
+    ]
+  },
+  {
+    "objectID": "portfolyo/calisma1.html#a",
+    "href": "portfolyo/calisma1.html#a",
+    "title": "Çalışma 1",
+    "section": "(a)",
+    "text": "(a)\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Çalışma 1"
+    ]
+  },
+  {
+    "objectID": "portfolyo/calisma1.html#b",
+    "href": "portfolyo/calisma1.html#b",
+    "title": "Çalışma 1",
+    "section": "(b)",
+    "text": "(b)",
+    "crumbs": [
+      "Çalışma 1"
+    ]
+  },
+  {
+    "objectID": "about.html#oğuzhan-şenel",
+    "href": "about.html#oğuzhan-şenel",
+    "title": "Hakkımda",
+    "section": "Oğuzhan Şenel",
+    "text": "Oğuzhan Şenel\nCV’mi PDF olarak indir"
+  },
+  {
+    "objectID": "about.html#employements",
+    "href": "about.html#employements",
+    "title": "Hakkımda",
+    "section": "Employements",
+    "text": "Employements\n\nBatı Çelik, Project Engineer, 2021 - 2024\nMersan Metal, Planning Engineer, 2024 - still"
+  },
+  {
+    "objectID": "about.html#internships",
+    "href": "about.html#internships",
+    "title": "Hakkımda",
+    "section": "Internships",
+    "text": "Internships\n\nAnt Mühendislik, R&D Engineer, 2017"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Analitik sayfama hoş geldiniz",
+    "section": "",
+    "text": "Merhaba ben Oğuz! MUY660-İş Analitiği dersi sayfama hoş geldiniz.\nBu sayfada iş analitiği çalışmalarımı paylaşıyorum.\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "portfolyo/calisma2.html",
+    "href": "portfolyo/calisma2.html",
+    "title": "Çalışma 2",
+    "section": "",
+    "text": "(Aşağıdakiler örnek olarak verilmiştir.)\nBu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.",
+    "crumbs": [
+      "Çalışma 2"
+    ]
+  },
+  {
+    "objectID": "portfolyo/calisma2.html#a",
+    "href": "portfolyo/calisma2.html#a",
+    "title": "Çalışma 2",
+    "section": "(a)",
+    "text": "(a)\n\n1 + 1\n\n[1] 2",
+    "crumbs": [
+      "Çalışma 2"
+    ]
+  },
+  {
+    "objectID": "portfolyo/calisma2.html#b",
+    "href": "portfolyo/calisma2.html#b",
+    "title": "Çalışma 2",
+    "section": "(b)",
+    "text": "(b)",
+    "crumbs": [
+      "Çalışma 2"
+    ]
+  },
+  {
+    "objectID": "posts.html",
+    "href": "posts.html",
+    "title": "My Blog",
+    "section": "",
+    "text": "Bu sayfa yapım aşamasındadır.\n\n\n\n Back to top"
+  }
+]
