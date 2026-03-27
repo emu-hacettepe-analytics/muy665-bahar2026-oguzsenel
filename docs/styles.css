@@ -1,4 +1,254 @@
 /* css styles */
 body {
-  background-color: #f5f1e8;
+ /* Üst barın tamamı */
+.navbar {
+  background-color: #2C2E48 !important;
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* Sol üstteki site adı */
+.navbar-brand {
+  color: #0d6efd !important;
+  font-weight: 800;
+  font-size: 1.15rem;
+  transition: color 0.25s ease;
+}
+
+/* Menü linkleri */
+.navbar .nav-link {
+  color: #FAFAFA!important;
+  font-weight: 600;
+  margin-left: 8px;
+  margin-right: 8px;
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+/* Üstüne gelince renk değişsin */
+.navbar .nav-link:hover,
+.navbar-brand:hover {
+  color: #0d6efd !important;
+  transform: translateY(-1px);
+}
+
+
+
+/* Sağdaki ikonlar */
+.navbar .bi,
+.navbar i,
+.navbar svg {
+  color: #FAFAFA !important;
+  transition: color 0.25s ease, transform 0.2s ease;
+}
+
+.navbar .bi:hover,
+.navbar i:hover,
+.navbar svg:hover {
+  color: #0d6efd !important;
+  transform: scale(1.08);
+}
+ 
+}
+
+/* Açılır menüdeki seçenekler */
+.dropdown-menu .dropdown-item {
+  color: #333333 !important;
+  font-weight: 500;
+}
+
+/* Üstüne gelince */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  color: #0d6efd !important;   
+  background-color: #f3f6ff !important;
+}
+
+/* Sol sidebar linkleri */
+.sidebar a,
+.sidebar .sidebar-item-text,
+.sidebar .menu-text {
+  color: #2f3156 !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Üstüne gelince */
+.sidebar a:hover,
+.sidebar .sidebar-item-text:hover,
+.sidebar .menu-text:hover {
+  color: #0d6efd !important;
+  padding-left: 4px;
+}
+
+/* Aktif olan sayfa/link */
+.sidebar .active,
+.sidebar a.active,
+.sidebar .sidebar-item-container .active {
+  color: #0d6efd !important;
+  font-weight: 700;
+}
+
+/* "On this page" başlığı */
+#TOC-title,
+.toc-title {
+  color: #2f3156 !important;
+  font-weight: 700;
+}
+
+/* İçindeki bölüm linkleri */
+#TOC a,
+.toc a,
+nav[role="doc-toc"] a {
+  color: #2f3156 !important;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+/* Üstüne gelince */
+#TOC a:hover,
+.toc a:hover,
+nav[role="doc-toc"] a:hover {
+  color: #0d6efd !important;
+  padding-left: 4px;
+}
+
+/* TOC yan çizgileri */
+#TOC,
+.toc,
+nav[role="doc-toc"] {
+  border-left: 1px solid #d6d9e0 !important;
+}
+/* Aktif bölüm */
+
+
+/* Aktif öğenin sol çizgisi */
+#TOC a.active,
+nav[role="doc-toc"] a.active {
+  border-left: 2px solid #0d6efd !important;
+  padding-left: 8px;
+}
+.profile-pic {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.about-header {
+  text-align: center;
+  margin: 20px auto 40px auto;
+  padding: 10px 20px 30px 20px;
+}
+
+.profile-pic {
+  width: 220px;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto 20px auto;
+  border: 4px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.about-header h1 {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #222;
+}
+
+.about-subtitle {
+  font-size: 1.05rem;
+  color: #5b6475;
+  margin-bottom: 20px;
+}
+
+.cv-button {
+  display: inline-block;
+  background-color: #2f3156;
+  color: #ffffff !important;
+  padding: 10px 18px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+.cv-button:hover {
+  background-color: #0d6efd;
+  color: #ffffff !important;
+  transform: translateY(-1px);
+}
+
+#quarto-content h2 {
+  margin-top: 38px;
+  margin-bottom: 14px;
+  font-weight: 800;
+  color: #222;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 8px;
+}
+
+#quarto-content h3 {
+  margin-top: 24px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #2f3156;
+}
+
+#quarto-content ul,
+#quarto-content ol {
+  line-height: 1.8;
+}
+
+.skill-tag {
+  display: inline-block;
+  background-color: #eef2ff;
+  color: #2f3156;
+  padding: 8px 12px;
+  margin: 6px 6px 0 0;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.about-header {
+  text-align: center;
+  margin: 10px auto 40px auto;
+  padding: 10px 20px 20px 20px;
+}
+
+.about-header h1 {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #222;
+}
+
+.about-subtitle {
+  color: #5f6b7a;
+  font-size: 1.05rem;
+  margin-bottom: 18px;
+}
+
+.cv-button {
+  display: inline-block;
+  background-color: #2f3156;
+  color: white !important;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.cv-button:hover {
+  background-color: #0d6efd;
+  color: white !important;
 }

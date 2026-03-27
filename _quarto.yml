@@ -7,15 +7,15 @@ website:
   navbar:
     search: true
     left:
-      - text: Anasayfa
+      - text: Ana Sayfa
         href: index.qmd
       - text: Hakkımda
         href: about.qmd
-      - text: Gönderilerim
+      - text: Gönderiler
         href: posts.qmd
       - text: "MUY665 Ders Çıktıları"
         menu:
-          - text: Ödevler
+          - text: Portfolyo
             href: portfolyo.qmd
           - text: Proje
             href: project.qmd
@@ -47,9 +47,7 @@ format:
   html:
     toc: true
     toc-location: left
-    theme: 
-      light: simplex 
-      dark: cyborg
+    theme: simplex
     css: styles.css
 
 

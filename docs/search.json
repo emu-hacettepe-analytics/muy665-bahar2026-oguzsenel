@@ -87,7 +87,7 @@
     "href": "portfolyo/calisma1.html#a",
     "title": "Çalışma 1",
     "section": "(a)",
-    "text": "(a)\n\n1 + 1\n\n[1] 2",
+    "text": "(a)\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "Çalışma 1"
     ]
@@ -97,31 +97,59 @@
     "href": "portfolyo/calisma1.html#b",
     "title": "Çalışma 1",
     "section": "(b)",
-    "text": "(b)",
+    "text": "(b)\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2\n\n\n\n1 + 1\n\n[1] 2",
     "crumbs": [
       "Çalışma 1"
     ]
   },
   {
-    "objectID": "about.html#oğuzhan-şenel",
-    "href": "about.html#oğuzhan-şenel",
+    "objectID": "about.html",
+    "href": "about.html",
     "title": "Hakkımda",
-    "section": "Oğuzhan Şenel",
-    "text": "Oğuzhan Şenel\nCV’mi PDF olarak indir"
+    "section": "",
+    "text": "Project & Operations Planning | Cross-functional Coordination\n\n\nÖzgeçmişi indir"
   },
   {
-    "objectID": "about.html#employements",
-    "href": "about.html#employements",
+    "objectID": "about.html#education",
+    "href": "about.html#education",
     "title": "Hakkımda",
-    "section": "Employements",
-    "text": "Employements\n\nBatı Çelik, Project Engineer, 2021 - 2024\nMersan Metal, Planning Engineer, 2024 - still"
+    "section": "Education",
+    "text": "Education\n\nB.S., Mechatronics Engineering, Duzce University, Turkey, 2014 - 2019.\nM.S., Composite Material Technologies, Duzce University, Turkey, 2020 - 2022.\nM.S., Engineering Management, Hacettepe University, Turkey, 2026 - ongoing."
   },
   {
-    "objectID": "about.html#internships",
-    "href": "about.html#internships",
+    "objectID": "about.html#experience",
+    "href": "about.html#experience",
     "title": "Hakkımda",
-    "section": "Internships",
-    "text": "Internships\n\nAnt Mühendislik, R&D Engineer, 2017"
+    "section": "Experience",
+    "text": "Experience\n\nMersan Metal, Planning Engineer, 2024 - still\nBatı Çelik, Project Engineer, 2021 - 2024"
+  },
+  {
+    "objectID": "about.html#projects",
+    "href": "about.html#projects",
+    "title": "Hakkımda",
+    "section": "Projects",
+    "text": "Projects\n\nDUBAP-2021.06.06-1168"
+  },
+  {
+    "objectID": "about.html#publications",
+    "href": "about.html#publications",
+    "title": "Hakkımda",
+    "section": "Publications",
+    "text": "Publications\n\nO. Şenel, G. Samtaş, Critical Methane Density Detection Robot Prototype Design and Production, Manufacturing Technologies and Applications, 3(1), 33-46, 2022"
+  },
+  {
+    "objectID": "about.html#competencies",
+    "href": "about.html#competencies",
+    "title": "Hakkımda",
+    "section": "Competencies",
+    "text": "Competencies\nPython HTML CSS Arduino Autocad Inventor Vault Solidworks Solidedge Catia v5 CorelDRAW DIA MS Project"
+  },
+  {
+    "objectID": "about.html#hobbies",
+    "href": "about.html#hobbies",
+    "title": "Hakkımda",
+    "section": "Hobbies",
+    "text": "Hobbies\n\nAquariums Chess Video Games"
   },
   {
     "objectID": "index.html",
