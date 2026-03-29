@@ -2,68 +2,133 @@
 title: "Çalışma 1"
 ---
 
-\
-(Aşağıdakiler örnek olarak verilmiştir.)
 
-Bu çalışmada 3 görevimiz var. Bu görevler..... Bunlara sırayla aşağıda cevap arıyoruz.
+## Soru 3
 
-## (a)
+### 3.1 Açıklama
+
+Ödevde yer alan sorular "Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Baykal Hafızoğlu & Erdi Daşdemir" isimli youtube videosundaki söyleşi kaynak alınarak hazırlanmıştır.
+
+### 3.2 Özet
+
+Analytics kavramı yakından incelendiğinde 4 temel yapıya ayrıldığı görülmektedir. Bunlar Descriptive Analytics, Diagnostic Analytics, Predictive Analytics ve Prescriptive Analytics olarak adlandırılır.
+
+Descriptive Analytics en temel seviyedir. “Ne oldu?” sorusuna cevap verir. Geçmiş verileri özetler; raporlar, dashboardlar ve temel performans göstergeleri bu gruba girer.
+
+Diagnostic Analytics bir adım ileri gider ve “Neden oldu?” sorusunu sorar. Bir sonucun arkasındaki nedenleri, ilişkileri ve sapmaları incelemeye çalışır. Örneğin satış düştüyse bunun fiyat, bölge, ürün ya da müşteri kaynaklı olup olmadığını araştırır.
+
+Predictive Analytics geleceğe dönüktür ve “Ne olacak?” sorusuna odaklanır. İstatistiksel modeller ve makine öğrenmesiyle tahmin üretir. Mesela gelecek ay talep ne olur, hangi müşteri ayrılabilir gibi sorular burada yer alır.
+
+Prescriptive Analytics ise en ileri seviyedir ve “Ne yapmalıyız?” sorusunu cevaplar. Sadece tahmin yapmakla kalmaz, en iyi aksiyonu da önerir. Optimizasyon, senaryo analizi ve karar destek sistemleri bu seviyededir.
+
+Aralarındaki ilişki şöyle özetlenebilir: önce geçmişi anlarsın (descriptive), sonra nedenlerini çözersin (diagnostic), ardından geleceği tahmin edersin (predictive), en sonunda da en doğru kararı önerirsin (prescriptive). Bu yüzden sağ üste doğru gidildikçe hem zorluk hem de potansiyel fayda artar.
+
+### 3.3 Klasik soru
+Descriptive ile Diagnostic Analytics arasındaki ilişki nedir?
+
+::: {.callout-note collapse="true" title="Cevabı görmek için tıklayınız"}
+Cevap: Descriptive Analytics ile Diagnostic Analytics birbirine bağlı iki aşamadır. Descriptive Analytics, "Ne oldu?" sorusuna yanıt arar. Diagnostic Analytics ile bir sonraki adımda "Neden oldu?" sorusuna yanıt arar.
+:::
+
+### 3.4 Test sorusu
+Aşağıdaki seşeneklerden hangisi İş Analitiği yöntemlerinden biri değildir?
+
+a) Descriptive
+b) Diagnostic
+c) Predictive
+d) Prescriptive
+e) Collective
+
+::: {.callout-note collapse="true" title="Cevabı görmek için tıklayınız"}
+Cevap: E
+:::
+
+## Soru 4 
+
+### 4.1 Gerekli paket ve veri seti
 
 ```{r}
-1 + 1
+library(dslabs)
+
+data <- polls_us_election_2016
 ```
+
+### 4.2 Kendi bilgilerim ve `k` değişkeni
+
 ```{r}
-1 + 1
+my_first <- "Oguzhan"
+my_birth_year <- 1996 
+
+k <- (nchar(my_first) + my_birth_year) %% 15 + 8
+
+k
 ```
+
+### 4.3 Orijinal veri setinden `k` satır gösterimi
+
 ```{r}
-1 + 1
+if (k %% 2 == 0) {
+  head(data, k)
+} else {
+  tail(data, k)
+}
 ```
+
+### 4.4 Orijinal veri setindeki toplam NA sayısı
+
 ```{r}
-1 + 1
+sum(is.na(data))
 ```
+
+### 4.5 Sütun başına NA sayıları (büyükten küçüğe ilk 8)
+
 ```{r}
-1 + 1
+na_counts <- colSums(is.na(data))
+na_counts_sorted <- sort(na_counts, decreasing = TRUE)
+
+head(na_counts_sorted, 8)
 ```
+
+### 4.6 NA değerlerini kurala göre doldurarak yeni veri çerçevesi oluşturma
+
 ```{r}
-1 + 1
+new_data <- data
+
+for (col_name in names(new_data)) {
+  if (is.numeric(new_data[[col_name]])) {
+    new_data[[col_name]][is.na(new_data[[col_name]])] <- my_birth_year + k
+  } else if (is.character(new_data[[col_name]]) || is.factor(new_data[[col_name]])) {
+    new_data[[col_name]] <- as.character(new_data[[col_name]])
+    new_data[[col_name]][is.na(new_data[[col_name]])] <- paste0(my_first, "_", k)
+  }
+}
 ```
+
+### 4.7 Yeni veri çerçevesinden `k` satır gösterimi
+
 ```{r}
-1 + 1
+if (k %% 2 == 0) {
+  head(new_data, k)
+} else {
+  tail(new_data, k)
+}
 ```
+
+### 4.8 Yeni veri çerçevesinde kalan toplam NA sayısı
+
 ```{r}
-1 + 1
+sum(is.na(new_data))
 ```
+
+### 4.9 `anyNA(new_data)` çıktısı
+
 ```{r}
-1 + 1
+anyNA(new_data)
 ```
-```{r}
-1 + 1
-```
-## (b)
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
-```{r}
-1 + 1
-```
+
+
+## Yapay Zeka Beyanı
+
+Bu ödev hazırlanırken quarto kod bloğunun oluşturulması, oluşturulan bloğun görsel olarak düzenlenmesi ve çıktıların doğruluğunun teyid edilmesi için yapay zekadan destek alınmıştır.
+
+Elde edilen çıktılar tarafımca incelenerek düzeltme promptları ve manuel eklemeler ile nihai halini almıştır.

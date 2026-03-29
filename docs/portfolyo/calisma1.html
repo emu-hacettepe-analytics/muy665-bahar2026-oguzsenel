@@ -218,8 +218,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#a" id="toc-a" class="nav-link active" data-scroll-target="#a">(a)</a></li>
-  <li><a href="#b" id="toc-b" class="nav-link" data-scroll-target="#b">(b)</a></li>
+  <li><a href="#soru-3" id="toc-soru-3" class="nav-link active" data-scroll-target="#soru-3">Soru 3</a>
+  <ul class="collapse">
+  <li><a href="#açıklama" id="toc-açıklama" class="nav-link" data-scroll-target="#açıklama">3.1 Açıklama</a></li>
+  <li><a href="#özet" id="toc-özet" class="nav-link" data-scroll-target="#özet">3.2 Özet</a></li>
+  <li><a href="#klasik-soru" id="toc-klasik-soru" class="nav-link" data-scroll-target="#klasik-soru">3.3 Klasik soru</a></li>
+  <li><a href="#test-sorusu" id="toc-test-sorusu" class="nav-link" data-scroll-target="#test-sorusu">3.4 Test sorusu</a></li>
+  </ul></li>
+  <li><a href="#soru-4" id="toc-soru-4" class="nav-link" data-scroll-target="#soru-4">Soru 4</a>
+  <ul class="collapse">
+  <li><a href="#gerekli-paket-ve-veri-seti" id="toc-gerekli-paket-ve-veri-seti" class="nav-link" data-scroll-target="#gerekli-paket-ve-veri-seti">4.1 Gerekli paket ve veri seti</a></li>
+  <li><a href="#kendi-bilgilerim-ve-k-değişkeni" id="toc-kendi-bilgilerim-ve-k-değişkeni" class="nav-link" data-scroll-target="#kendi-bilgilerim-ve-k-değişkeni">4.2 Kendi bilgilerim ve <code>k</code> değişkeni</a></li>
+  <li><a href="#orijinal-veri-setinden-k-satır-gösterimi" id="toc-orijinal-veri-setinden-k-satır-gösterimi" class="nav-link" data-scroll-target="#orijinal-veri-setinden-k-satır-gösterimi">4.3 Orijinal veri setinden <code>k</code> satır gösterimi</a></li>
+  <li><a href="#orijinal-veri-setindeki-toplam-na-sayısı" id="toc-orijinal-veri-setindeki-toplam-na-sayısı" class="nav-link" data-scroll-target="#orijinal-veri-setindeki-toplam-na-sayısı">4.4 Orijinal veri setindeki toplam NA sayısı</a></li>
+  <li><a href="#sütun-başına-na-sayıları-büyükten-küçüğe-ilk-8" id="toc-sütun-başına-na-sayıları-büyükten-küçüğe-ilk-8" class="nav-link" data-scroll-target="#sütun-başına-na-sayıları-büyükten-küçüğe-ilk-8">4.5 Sütun başına NA sayıları (büyükten küçüğe ilk 8)</a></li>
+  <li><a href="#na-değerlerini-kurala-göre-doldurarak-yeni-veri-çerçevesi-oluşturma" id="toc-na-değerlerini-kurala-göre-doldurarak-yeni-veri-çerçevesi-oluşturma" class="nav-link" data-scroll-target="#na-değerlerini-kurala-göre-doldurarak-yeni-veri-çerçevesi-oluşturma">4.6 NA değerlerini kurala göre doldurarak yeni veri çerçevesi oluşturma</a></li>
+  <li><a href="#yeni-veri-çerçevesinden-k-satır-gösterimi" id="toc-yeni-veri-çerçevesinden-k-satır-gösterimi" class="nav-link" data-scroll-target="#yeni-veri-çerçevesinden-k-satır-gösterimi">4.7 Yeni veri çerçevesinden <code>k</code> satır gösterimi</a></li>
+  <li><a href="#yeni-veri-çerçevesinde-kalan-toplam-na-sayısı" id="toc-yeni-veri-çerçevesinde-kalan-toplam-na-sayısı" class="nav-link" data-scroll-target="#yeni-veri-çerçevesinde-kalan-toplam-na-sayısı">4.8 Yeni veri çerçevesinde kalan toplam NA sayısı</a></li>
+  <li><a href="#anynanew_data-çıktısı" id="toc-anynanew_data-çıktısı" class="nav-link" data-scroll-target="#anynanew_data-çıktısı">4.9 <code>anyNA(new_data)</code> çıktısı</a></li>
+  </ul></li>
+  <li><a href="#yapay-zeka-beyanı" id="toc-yapay-zeka-beyanı" class="nav-link" data-scroll-target="#yapay-zeka-beyanı">Yapay Zeka Beyanı</a></li>
   </ul>
 </nav>
 </nav>
@@ -249,128 +267,332 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><br>
-(Aşağıdakiler örnek olarak verilmiştir.)</p>
-<p>Bu çalışmada 3 görevimiz var. Bu görevler….. Bunlara sırayla aşağıda cevap arıyoruz.</p>
-<section id="a" class="level2">
-<h2 class="anchored" data-anchor-id="a">(a)</h2>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<section id="soru-3" class="level2">
+<h2 class="anchored" data-anchor-id="soru-3">Soru 3</h2>
+<section id="açıklama" class="level3">
+<h3 class="anchored" data-anchor-id="açıklama">3.1 Açıklama</h3>
+<p>Ödevde yer alan sorular “Veri Bilimi ve Endüstri Mühendisliği Üzerine Sohbetler - Baykal Hafızoğlu &amp; Erdi Daşdemir” isimli youtube videosundaki söyleşi kaynak alınarak hazırlanmıştır.</p>
+</section>
+<section id="özet" class="level3">
+<h3 class="anchored" data-anchor-id="özet">3.2 Özet</h3>
+<p>Analytics kavramı yakından incelendiğinde 4 temel yapıya ayrıldığı görülmektedir. Bunlar Descriptive Analytics, Diagnostic Analytics, Predictive Analytics ve Prescriptive Analytics olarak adlandırılır.</p>
+<p>Descriptive Analytics en temel seviyedir. “Ne oldu?” sorusuna cevap verir. Geçmiş verileri özetler; raporlar, dashboardlar ve temel performans göstergeleri bu gruba girer.</p>
+<p>Diagnostic Analytics bir adım ileri gider ve “Neden oldu?” sorusunu sorar. Bir sonucun arkasındaki nedenleri, ilişkileri ve sapmaları incelemeye çalışır. Örneğin satış düştüyse bunun fiyat, bölge, ürün ya da müşteri kaynaklı olup olmadığını araştırır.</p>
+<p>Predictive Analytics geleceğe dönüktür ve “Ne olacak?” sorusuna odaklanır. İstatistiksel modeller ve makine öğrenmesiyle tahmin üretir. Mesela gelecek ay talep ne olur, hangi müşteri ayrılabilir gibi sorular burada yer alır.</p>
+<p>Prescriptive Analytics ise en ileri seviyedir ve “Ne yapmalıyız?” sorusunu cevaplar. Sadece tahmin yapmakla kalmaz, en iyi aksiyonu da önerir. Optimizasyon, senaryo analizi ve karar destek sistemleri bu seviyededir.</p>
+<p>Aralarındaki ilişki şöyle özetlenebilir: önce geçmişi anlarsın (descriptive), sonra nedenlerini çözersin (diagnostic), ardından geleceği tahmin edersin (predictive), en sonunda da en doğru kararı önerirsin (prescriptive). Bu yüzden sağ üste doğru gidildikçe hem zorluk hem de potansiyel fayda artar.</p>
+</section>
+<section id="klasik-soru" class="level3">
+<h3 class="anchored" data-anchor-id="klasik-soru">3.3 Klasik soru</h3>
+<p>Descriptive ile Diagnostic Analytics arasındaki ilişki nedir?</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Cevabı görmek için tıklayınız">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cevabı görmek için tıklayınız
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cevap: Descriptive Analytics ile Diagnostic Analytics birbirine bağlı iki aşamadır. Descriptive Analytics, “Ne oldu?” sorusuna yanıt arar. Diagnostic Analytics ile bir sonraki adımda “Neden oldu?” sorusuna yanıt arar.</p>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
 </div>
 </div>
 </section>
-<section id="b" class="level2">
-<h2 class="anchored" data-anchor-id="b">(b)</h2>
+<section id="test-sorusu" class="level3">
+<h3 class="anchored" data-anchor-id="test-sorusu">3.4 Test sorusu</h3>
+<p>Aşağıdaki seşeneklerden hangisi İş Analitiği yöntemlerinden biri değildir?</p>
+<ol type="a">
+<li>Descriptive</li>
+<li>Diagnostic</li>
+<li>Predictive</li>
+<li>Prescriptive</li>
+<li>Collective</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled" title="Cevabı görmek için tıklayınız">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Cevabı görmek için tıklayınız
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Cevap: E</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="soru-4" class="level2">
+<h2 class="anchored" data-anchor-id="soru-4">Soru 4</h2>
+<section id="gerekli-paket-ve-veri-seti" class="level3">
+<h3 class="anchored" data-anchor-id="gerekli-paket-ve-veri-seti">4.1 Gerekli paket ve veri seti</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dslabs)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> polls_us_election_2016</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
+</section>
+<section id="kendi-bilgilerim-ve-k-değişkeni" class="level3">
+<h3 class="anchored" data-anchor-id="kendi-bilgilerim-ve-k-değişkeni">4.2 Kendi bilgilerim ve <code>k</code> değişkeni</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_first <span class="ot">&lt;-</span> <span class="st">"Oguzhan"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>my_birth_year <span class="ot">&lt;-</span> <span class="dv">1996</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> (<span class="fu">nchar</span>(my_first) <span class="sc">+</span> my_birth_year) <span class="sc">%%</span> <span class="dv">15</span> <span class="sc">+</span> <span class="dv">8</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>k</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] 16</code></pre>
 </div>
 </div>
+</section>
+<section id="orijinal-veri-setinden-k-satır-gösterimi" class="level3">
+<h3 class="anchored" data-anchor-id="orijinal-veri-setinden-k-satır-gösterimi">4.3 Orijinal veri setinden <code>k</code> satır gösterimi</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (k <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(data, k)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(data, k)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>        state  startdate    enddate
+1        U.S. 2016-11-03 2016-11-06
+2        U.S. 2016-11-01 2016-11-07
+3        U.S. 2016-11-02 2016-11-06
+4        U.S. 2016-11-04 2016-11-07
+5        U.S. 2016-11-03 2016-11-06
+6        U.S. 2016-11-03 2016-11-06
+7        U.S. 2016-11-02 2016-11-06
+8        U.S. 2016-11-03 2016-11-05
+9  New Mexico 2016-11-06 2016-11-06
+10       U.S. 2016-11-04 2016-11-07
+11       U.S. 2016-11-04 2016-11-06
+12       U.S. 2016-11-01 2016-11-04
+13       U.S. 2016-11-03 2016-11-06
+14   Virginia 2016-11-03 2016-11-04
+15       U.S. 2016-11-01 2016-11-03
+16       Iowa 2016-11-01 2016-11-04
+                                                     pollster grade samplesize
+1                                    ABC News/Washington Post    A+       2220
+2                                     Google Consumer Surveys     B      26574
+3                                                       Ipsos    A-       2195
+4                                                      YouGov     B       3677
+5                                            Gravis Marketing    B-      16639
+6  Fox News/Anderson Robbins Research/Shaw &amp; Company Research     A       1295
+7                                     CBS News/New York Times    A-       1426
+8                                NBC News/Wall Street Journal    A-       1282
+9                                                    Zia Poll  &lt;NA&gt;       8439
+10                                                   IBD/TIPP    A-       1107
+11                                           Selzer &amp; Company    A+        799
+12                                          Angus Reid Global    A-       1151
+13                                        Monmouth University    A+        748
+14                                      Public Policy Polling    B+       1238
+15                                             Marist College     A        940
+16                                           Selzer &amp; Company    A+        800
+   population rawpoll_clinton rawpoll_trump rawpoll_johnson rawpoll_mcmullin
+1          lv           47.00         43.00            4.00               NA
+2          lv           38.03         35.69            5.46               NA
+3          lv           42.00         39.00            6.00               NA
+4          lv           45.00         41.00            5.00               NA
+5          rv           47.00         43.00            3.00               NA
+6          lv           48.00         44.00            3.00               NA
+7          lv           45.00         41.00            5.00               NA
+8          lv           44.00         40.00            6.00               NA
+9          lv           46.00         44.00            6.00               NA
+10         lv           41.20         42.70            7.10               NA
+11         lv           44.00         41.00            4.00               NA
+12         lv           48.00         44.00            6.00               NA
+13         lv           50.00         44.00            4.00               NA
+14         lv           48.00         43.00            1.00               NA
+15         lv           44.00         43.00            6.00               NA
+16         lv           39.00         46.00            6.00               NA
+   adjpoll_clinton adjpoll_trump adjpoll_johnson adjpoll_mcmullin
+1         45.20163      41.72430        4.626221               NA
+2         43.34557      41.21439        5.175792               NA
+3         42.02638      38.81620        6.844734               NA
+4         45.65676      40.92004        6.069454               NA
+5         46.84089      42.33184        3.726098               NA
+6         49.02208      43.95631        3.057876               NA
+7         45.11649      40.92722        4.341786               NA
+8         43.58576      40.77325        5.365788               NA
+9         44.82594      41.59978        7.870127               NA
+10        42.92745      42.23545        6.316175               NA
+11        44.21714      40.57082        4.068708               NA
+12        47.57171      43.68125        5.556625               NA
+13        48.86765      43.39600        4.838600               NA
+14        47.43805      42.32751        2.207659               NA
+15        42.83406      43.43819        4.780429               NA
+16        39.37561      45.66917        6.062713               NA</code></pre>
 </div>
 </div>
+</section>
+<section id="orijinal-veri-setindeki-toplam-na-sayısı" class="level3">
+<h3 class="anchored" data-anchor-id="orijinal-veri-setindeki-toplam-na-sayısı">4.4 Orijinal veri setindeki toplam NA sayısı</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] 11604</code></pre>
 </div>
 </div>
+</section>
+<section id="sütun-başına-na-sayıları-büyükten-küçüğe-ilk-8" class="level3">
+<h3 class="anchored" data-anchor-id="sütun-başına-na-sayıları-büyükten-küçüğe-ilk-8">4.5 Sütun başına NA sayıları (büyükten küçüğe ilk 8)</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>na_counts <span class="ot">&lt;-</span> <span class="fu">colSums</span>(<span class="fu">is.na</span>(data))</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>na_counts_sorted <span class="ot">&lt;-</span> <span class="fu">sort</span>(na_counts, <span class="at">decreasing =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(na_counts_sorted, <span class="dv">8</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>rawpoll_mcmullin adjpoll_mcmullin  rawpoll_johnson  adjpoll_johnson 
+            4178             4178             1409             1409 
+           grade       samplesize            state        startdate 
+             429                1                0                0 </code></pre>
 </div>
 </div>
+</section>
+<section id="na-değerlerini-kurala-göre-doldurarak-yeni-veri-çerçevesi-oluşturma" class="level3">
+<h3 class="anchored" data-anchor-id="na-değerlerini-kurala-göre-doldurarak-yeni-veri-çerçevesi-oluşturma">4.6 NA değerlerini kurala göre doldurarak yeni veri çerçevesi oluşturma</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>new_data <span class="ot">&lt;-</span> data</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (col_name <span class="cf">in</span> <span class="fu">names</span>(new_data)) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.numeric</span>(new_data[[col_name]])) {</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    new_data[[col_name]][<span class="fu">is.na</span>(new_data[[col_name]])] <span class="ot">&lt;-</span> my_birth_year <span class="sc">+</span> k</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (<span class="fu">is.character</span>(new_data[[col_name]]) <span class="sc">||</span> <span class="fu">is.factor</span>(new_data[[col_name]])) {</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    new_data[[col_name]] <span class="ot">&lt;-</span> <span class="fu">as.character</span>(new_data[[col_name]])</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    new_data[[col_name]][<span class="fu">is.na</span>(new_data[[col_name]])] <span class="ot">&lt;-</span> <span class="fu">paste0</span>(my_first, <span class="st">"_"</span>, k)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
+</section>
+<section id="yeni-veri-çerçevesinden-k-satır-gösterimi" class="level3">
+<h3 class="anchored" data-anchor-id="yeni-veri-çerçevesinden-k-satır-gösterimi">4.7 Yeni veri çerçevesinden <code>k</code> satır gösterimi</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (k <span class="sc">%%</span> <span class="dv">2</span> <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(new_data, k)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tail</span>(new_data, k)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>        state  startdate    enddate
+1        U.S. 2016-11-03 2016-11-06
+2        U.S. 2016-11-01 2016-11-07
+3        U.S. 2016-11-02 2016-11-06
+4        U.S. 2016-11-04 2016-11-07
+5        U.S. 2016-11-03 2016-11-06
+6        U.S. 2016-11-03 2016-11-06
+7        U.S. 2016-11-02 2016-11-06
+8        U.S. 2016-11-03 2016-11-05
+9  New Mexico 2016-11-06 2016-11-06
+10       U.S. 2016-11-04 2016-11-07
+11       U.S. 2016-11-04 2016-11-06
+12       U.S. 2016-11-01 2016-11-04
+13       U.S. 2016-11-03 2016-11-06
+14   Virginia 2016-11-03 2016-11-04
+15       U.S. 2016-11-01 2016-11-03
+16       Iowa 2016-11-01 2016-11-04
+                                                     pollster      grade
+1                                    ABC News/Washington Post         A+
+2                                     Google Consumer Surveys          B
+3                                                       Ipsos         A-
+4                                                      YouGov          B
+5                                            Gravis Marketing         B-
+6  Fox News/Anderson Robbins Research/Shaw &amp; Company Research          A
+7                                     CBS News/New York Times         A-
+8                                NBC News/Wall Street Journal         A-
+9                                                    Zia Poll Oguzhan_16
+10                                                   IBD/TIPP         A-
+11                                           Selzer &amp; Company         A+
+12                                          Angus Reid Global         A-
+13                                        Monmouth University         A+
+14                                      Public Policy Polling         B+
+15                                             Marist College          A
+16                                           Selzer &amp; Company         A+
+   samplesize population rawpoll_clinton rawpoll_trump rawpoll_johnson
+1        2220         lv           47.00         43.00            4.00
+2       26574         lv           38.03         35.69            5.46
+3        2195         lv           42.00         39.00            6.00
+4        3677         lv           45.00         41.00            5.00
+5       16639         rv           47.00         43.00            3.00
+6        1295         lv           48.00         44.00            3.00
+7        1426         lv           45.00         41.00            5.00
+8        1282         lv           44.00         40.00            6.00
+9        8439         lv           46.00         44.00            6.00
+10       1107         lv           41.20         42.70            7.10
+11        799         lv           44.00         41.00            4.00
+12       1151         lv           48.00         44.00            6.00
+13        748         lv           50.00         44.00            4.00
+14       1238         lv           48.00         43.00            1.00
+15        940         lv           44.00         43.00            6.00
+16        800         lv           39.00         46.00            6.00
+   rawpoll_mcmullin adjpoll_clinton adjpoll_trump adjpoll_johnson
+1              2012        45.20163      41.72430        4.626221
+2              2012        43.34557      41.21439        5.175792
+3              2012        42.02638      38.81620        6.844734
+4              2012        45.65676      40.92004        6.069454
+5              2012        46.84089      42.33184        3.726098
+6              2012        49.02208      43.95631        3.057876
+7              2012        45.11649      40.92722        4.341786
+8              2012        43.58576      40.77325        5.365788
+9              2012        44.82594      41.59978        7.870127
+10             2012        42.92745      42.23545        6.316175
+11             2012        44.21714      40.57082        4.068708
+12             2012        47.57171      43.68125        5.556625
+13             2012        48.86765      43.39600        4.838600
+14             2012        47.43805      42.32751        2.207659
+15             2012        42.83406      43.43819        4.780429
+16             2012        39.37561      45.66917        6.062713
+   adjpoll_mcmullin
+1              2012
+2              2012
+3              2012
+4              2012
+5              2012
+6              2012
+7              2012
+8              2012
+9              2012
+10             2012
+11             2012
+12             2012
+13             2012
+14             2012
+15             2012
+16             2012</code></pre>
 </div>
 </div>
+</section>
+<section id="yeni-veri-çerçevesinde-kalan-toplam-na-sayısı" class="level3">
+<h3 class="anchored" data-anchor-id="yeni-veri-çerçevesinde-kalan-toplam-na-sayısı">4.8 Yeni veri çerçevesinde kalan toplam NA sayısı</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(new_data))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] 0</code></pre>
 </div>
 </div>
+</section>
+<section id="anynanew_data-çıktısı" class="level3">
+<h3 class="anchored" data-anchor-id="anynanew_data-çıktısı">4.9 <code>anyNA(new_data)</code> çıktısı</h3>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anyNA</span>(new_data)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<pre><code>[1] FALSE</code></pre>
 </div>
 </div>
+</section>
+</section>
+<section id="yapay-zeka-beyanı" class="level2">
+<h2 class="anchored" data-anchor-id="yapay-zeka-beyanı">Yapay Zeka Beyanı</h2>
+<p>Bu ödev hazırlanırken quarto kod bloğunun oluşturulması, oluşturulan bloğun görsel olarak düzenlenmesi ve çıktıların doğruluğunun teyid edilmesi için yapay zekadan destek alınmıştır.</p>
+<p>Elde edilen çıktılar tarafımca incelenerek düzeltme promptları ve manuel eklemeler ile nihai halini almıştır.</p>
 
 
 </section>
