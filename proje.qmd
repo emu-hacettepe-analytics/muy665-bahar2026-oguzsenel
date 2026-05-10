@@ -1,7 +1,215 @@
 ---
-title: "Proje X (proje adını yazınız)"
+title: "Türkiye’de Nüfus, Araçlaşma ve Trafik Kazaları İlişkisi (2009–2024)"
 number-sections: true
 ---
+
+## Proje Konusu
+
+Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus artışı, trafiğe kayıtlı araç sayısı artışı ve trafik kaza sayısı arasındaki ilişki incelenmektedir. Amaç, bu üç göstergenin zaman içindeki değişimini birlikte değerlendirerek aralarındaki benzerlikleri ve farklılıkları ortaya koymaktır.
+
+## Araştırma Soruları
+
+Bu proje kapsamında aşağıdaki sorulara yanıt aranacaktır:
+
+1.  2009–2024 yılları arasında Türkiye nüfusu, trafiğe kayıtlı araç sayısı ve trafik kaza sayısı nasıl değişmiştir?
+2.  Araç sayısındaki artış ile kaza sayısındaki artış aynı yönde ve benzer hızda mıdır?
+3.  Nüfusa göre ve araç sayısına göre hesaplanan oranlar incelendiğinde trafik riskinde artış mı azalış mı görülmektedir?
+4.  Araç sayısı artmasına rağmen kaza sayısında düşüş görülen yıllar varsa, bu durum nasıl yorumlanabilir?
+
+## Veri Kaynağı
+
+Projede kullanılan temel veri seti TÜİK kaynaklı trafik verilerinden elde edilmiştir. Veri setinde yıllara göre trafiğe kayıtlı araç sayısı, kaza sayısı, ölü sayısı ve yaralı sayısı gibi değişkenler yer almaktadır. Ayrıca nüfus değişkeni de TÜİK verilerinden alınarak veri setine eklenmiştir.
+
+## Verinin R Ortamına Aktarılması
+
+Aşağıda veri setinin Excel dosyasından R ortamına aktarılması gösterilmektedir.
+
+```{r}
+library(readxl)
+library(dplyr)
+library(ggplot2)
+library(janitor)
+library(scales)
+
+trafik <- read_excel("Trafiğe Kayıtlı Araç, Kaza, Ölü ve Yaralı Sayısı (TR+DF_TRAFIK_KAZA_KAYITLI_ARAC_OLU_YARALI_V1+1.0).xlsx")
+```
+
+## Veri Yapısı ve İlk İnceleme
+
+Veri setinin yapısı aşağıda incelenmektedir.
+
+```{r}
+glimpse(trafik)
+```
+
+```{r}
+head(trafik)
+```
+
+Bu aşamada değişken isimleri, veri tipleri ve gözlem sayısı kontrol edilmektedir.
+
+## Veri Temizleme ve Ön İşleme
+
+Analize başlamadan önce sütun isimleri sadeleştirilmiş, gerekli değişkenler yeniden adlandırılmış ve sayısal değişkenler uygun formata dönüştürülmüştür.
+
+```{r}
+trafik <- trafik %>%
+  clean_names()
+
+names(trafik)
+```
+
+Burada, veri setindeki gerçek sütun adlarına göre gerekirse yeniden adlandırma yapılacaktır.
+
+```{r}
+# Örnek: gerçek sütun adlarına göre bunu uyarlayacağız
+# trafik <- trafik %>%
+#   rename(
+#     yil = ...,
+#     nufus = ...,
+#     arac_sayisi = ...,
+#     kaza_sayisi = ...,
+#     olu_sayisi = ...,
+#     yarali_sayisi = ...
+#   )
+```
+
+## Türetilmiş Değişkenler
+
+Yalnızca ham sayıları incelemek yerine, daha anlamlı karşılaştırmalar yapabilmek için bazı oran değişkenleri oluşturulmuştur.
+
+```{r}
+trafik <- trafik %>%
+  mutate(
+    arac_1000_nufus = arac_sayisi / nufus * 1000,
+    kaza_100000_nufus = kaza_sayisi / nufus * 100000,
+    kaza_10000_arac = kaza_sayisi / arac_sayisi * 10000
+  )
+```
+
+Bu değişkenler sayesinde nüfus artışından ve araç sayısı artışından bağımsız olarak göreli değişim incelenebilecektir.
+
+## Keşifsel Veri Analizi
+
+### Yıllara Göre Nüfus Değişimi
+
+```{r}
+ggplot(trafik, aes(x = yil, y = nufus)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  scale_y_continuous(labels = label_number(big.mark = ".")) +
+  labs(
+    title = "Yıllara Göre Nüfus Değişimi",
+    x = "Yıl",
+    y = "Nüfus"
+  )
+```
+
+### Yıllara Göre Araç Sayısı Değişimi
+
+```{r}
+ggplot(trafik, aes(x = yil, y = arac_sayisi)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  scale_y_continuous(labels = label_number(big.mark = ".")) +
+  labs(
+    title = "Yıllara Göre Trafiğe Kayıtlı Araç Sayısı",
+    x = "Yıl",
+    y = "Araç Sayısı"
+  )
+```
+
+### Yıllara Göre Kaza Sayısı Değişimi
+
+```{r}
+ggplot(trafik, aes(x = yil, y = kaza_sayisi)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  scale_y_continuous(labels = label_number(big.mark = ".")) +
+  labs(
+    title = "Yıllara Göre Trafik Kaza Sayısı",
+    x = "Yıl",
+    y = "Kaza Sayısı"
+  )
+```
+
+## Oran Bazlı Analizler
+
+### 100.000 Kişi Başına Kaza Sayısı
+
+```{r}
+ggplot(trafik, aes(x = yil, y = kaza_100000_nufus)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "100.000 Kişi Başına Kaza Sayısı",
+    x = "Yıl",
+    y = "Kaza Oranı"
+  )
+```
+
+### 10.000 Araç Başına Kaza Sayısı
+
+```{r}
+ggplot(trafik, aes(x = yil, y = kaza_10000_arac)) +
+  geom_line(linewidth = 1) +
+  geom_point() +
+  labs(
+    title = "10.000 Araç Başına Kaza Sayısı",
+    x = "Yıl",
+    y = "Kaza Oranı"
+  )
+```
+
+## Değişkenler Arasındaki İlişki
+
+### Araç Sayısı ve Kaza Sayısı İlişkisi
+
+```{r}
+ggplot(trafik, aes(x = arac_sayisi, y = kaza_sayisi)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_x_continuous(labels = label_number(big.mark = ".")) +
+  scale_y_continuous(labels = label_number(big.mark = ".")) +
+  labs(
+    title = "Araç Sayısı ile Kaza Sayısı Arasındaki İlişki",
+    x = "Araç Sayısı",
+    y = "Kaza Sayısı"
+  )
+```
+
+### Nüfus ve Kaza Sayısı İlişkisi
+
+```{r}
+ggplot(trafik, aes(x = nufus, y = kaza_sayisi)) +
+  geom_point(size = 3) +
+  geom_smooth(method = "lm", se = FALSE) +
+  scale_x_continuous(labels = label_number(big.mark = ".")) +
+  scale_y_continuous(labels = label_number(big.mark = ".")) +
+  labs(
+    title = "Nüfus ile Kaza Sayısı Arasındaki İlişki",
+    x = "Nüfus",
+    y = "Kaza Sayısı"
+  )
+```
+
+## Bulgular ve Yorum
+
+Bu bölümde grafiklerden ve hesaplanan oranlardan elde edilen bulgular yorumlanacaktır. Özellikle araç sayısındaki artış ile kaza sayısındaki değişim aynı yönde ilerlemiyorsa, bunun olası nedenleri tartışılacaktır.
+
+Örneğin: - yol altyapısındaki iyileşmeler, - araç güvenlik sistemlerinin gelişmesi, - trafik denetimlerinin artması, - sürücü davranışlarındaki değişim, - pandemi gibi olağanüstü dönemler
+
+kaza sayısındaki değişimleri açıklamada etkili olabilir.
+
+## Sonuç
+
+Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus, araç sayısı ve trafik kazaları arasındaki ilişki incelenmiştir. Ham sayıların yanında oran bazlı göstergeler de değerlendirilerek trafik riskinin zaman içindeki değişimi daha anlamlı biçimde yorumlanmıştır.
+
+## Kullanılan Araçlar ve Not
+
+Bu proje R programlama dili kullanılarak hazırlanmış, Quarto ile raporlanmış ve GitHub Pages üzerinde yayımlanmıştır.
+
+Yapay zekâ desteği kullanılan bölümlerde ilgili not ayrıca belirtilecektir.
 
 **Projemizle ilgili güncellemelerden haberdar olmak için bu xxxxx bağlantısındaki proje sayfamızı takip edin.**
 
