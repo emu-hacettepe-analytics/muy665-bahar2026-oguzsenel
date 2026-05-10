@@ -1,264 +1,338 @@
 ---
-title: "Türkiye’de Nüfus, Araçlaşma ve Trafik Kazaları İlişkisi (2009–2024)"
-number-sections: true
+title: "Türkiye’de Nüfus, Araç Artışı ve Trafik Kazaları İlişkisi (2009–2024)"
+format:
+  html:
+    toc: true
+    toc-location: left
+    code-fold: true
+    code-summary: "Kodu göstermek için tıklayınız"
+execute:
+  warning: false
+  message: false
 ---
 
-## Proje Konusu
+### Proje Konusu
 
-Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus artışı, trafiğe kayıtlı araç sayısı artışı ve trafik kaza sayısı arasındaki ilişki incelenmektedir. Amaç, bu üç göstergenin zaman içindeki değişimini birlikte değerlendirerek aralarındaki benzerlikleri ve farklılıkları ortaya koymaktır.
+Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus artışı, trafiğe kayıtlı araç sayısı artışı ve trafik kaza sayısı arasındaki ilişki incelenmektedir. Amaç, bu üç göstergenin zaman içindeki değişimini birlikte değerlendirerek aralarındaki benzerlikleri ve farklılıkları ortaya koymaktır. Özellikle araç sayısının arttığı dönemlerde kaza sayısının aynı doğrultuda ilerleyip ilerlemediği analiz edilmekte, farklılaşma görülen yıllar ise yorumlanmaktadır.
 
-## Araştırma Soruları
+### Araştırma Soruları
 
 Bu proje kapsamında aşağıdaki sorulara yanıt aranacaktır:
 
-1.  2009–2024 yılları arasında Türkiye nüfusu, trafiğe kayıtlı araç sayısı ve trafik kaza sayısı nasıl değişmiştir?
-2.  Araç sayısındaki artış ile kaza sayısındaki artış aynı yönde ve benzer hızda mıdır?
-3.  Nüfusa göre ve araç sayısına göre hesaplanan oranlar incelendiğinde trafik riskinde artış mı azalış mı görülmektedir?
-4.  Araç sayısı artmasına rağmen kaza sayısında düşüş görülen yıllar varsa, bu durum nasıl yorumlanabilir?
+1. 2009–2024 yılları arasında Türkiye nüfusu, trafiğe kayıtlı araç sayısı ve trafik kaza sayısı nasıl değişmiştir?
+2. Araç sayısındaki artış ile kaza sayısındaki artış aynı yönde ve benzer hızda mıdır?
+3. Nüfusa göre ve araç sayısına göre hesaplanan oranlar incelendiğinde trafik riskinde artış mı azalış mı görülmektedir?
+4. Araç sayısı artmasına rağmen kaza sayısında düşüş görülen yıllar varsa, bu durum nasıl yorumlanabilir?
 
-## Veri Kaynağı
+### Veri Kaynağı
 
-Projede kullanılan temel veri seti TÜİK kaynaklı trafik verilerinden elde edilmiştir. Veri setinde yıllara göre trafiğe kayıtlı araç sayısı, kaza sayısı, ölü sayısı ve yaralı sayısı gibi değişkenler yer almaktadır. Ayrıca nüfus değişkeni de TÜİK verilerinden alınarak veri setine eklenmiştir.
+Projede kullanılan temel veri seti TÜİK kaynaklı yıllık trafik verilerinden oluşturulmuştur. Veri setinde 2009–2024 dönemi için nüfus, trafiğe kayıtlı araç sayısı, toplam kaza sayısı, maddi hasarlı kaza sayısı, ölümlü-yaralanmalı kaza sayısı, ölü sayısı ve yaralı sayısı gibi değişkenler yer almaktadır. Nüfus sütunu da TÜİK verileri kullanılarak veri setine eklenmiştir.
 
-## Verinin R Ortamına Aktarılması
+### Gerekli Paketler
 
-Aşağıda veri setinin Excel dosyasından R ortamına aktarılması gösterilmektedir.
+Bu proje kapsamında (readx1), (dplyr), (ggplot2), (scales), (knitr) kütüphaneleri kullanılmıştır.
 
 ```{r}
 library(readxl)
 library(dplyr)
 library(ggplot2)
-library(janitor)
 library(scales)
-
-trafik <- read_excel("Trafiğe Kayıtlı Araç, Kaza, Ölü ve Yaralı Sayısı (TR+DF_TRAFIK_KAZA_KAYITLI_ARAC_OLU_YARALI_V1+1.0).xlsx")
+library(knitr)
 ```
 
-## Veri Yapısı ve İlk İnceleme
+### Veri Setinin Görünümü
 
-Veri setinin yapısı aşağıda incelenmektedir.
+Aşağıda analizde kullanılacak ham veri seti gösterilmektedir.
 
 ```{r}
-glimpse(trafik)
+trafik_raw <- read_excel("data/trafik_veri.xlsx", skip = 5)
+
+names(trafik_raw) <- c(
+  "yil",
+  "nufus",
+  "arac_sayisi",
+  "kaza_sayisi",
+  "maddi_hasarli_kaza",
+  "olumlu_yaralanmali_kaza",
+  "olu_sayisi",
+  "yarali_sayisi"
+)
+```
+```{r}
+kable(trafik_raw, caption = "Ham veri seti")
 ```
 
+Bu tablo, veri setinin temel yapısını göstermektedir. Veri yıllık gözlemlerden oluşmakta ve her yıl için nüfus, araç sayısı, kaza sayısı, ölü sayısı ve yaralı sayısı gibi temel göstergeleri içermektedir.
+
+### Verinin R Ortamına Aktarılması
+
+Aşağıda veri setinin analiz için uygun hale getirilmesi gösterilmektedir. Bu aşamada yıl ve diğer değişkenler sayısal formata dönüştürülmüş, boş satırlar temizlenmiştir.
+
 ```{r}
-head(trafik)
+#| code-fold: false
+
+trafik <- trafik_raw %>%
+  mutate(
+    yil = as.numeric(yil),
+    across(-yil, as.numeric)
+  ) %>%
+  filter(!is.na(yil))
 ```
 
-Bu aşamada değişken isimleri, veri tipleri ve gözlem sayısı kontrol edilmektedir.
+### Veri Yapısı ve İlk İnceleme
 
-## Veri Temizleme ve Ön İşleme
-
-Analize başlamadan önce sütun isimleri sadeleştirilmiş, gerekli değişkenler yeniden adlandırılmış ve sayısal değişkenler uygun formata dönüştürülmüştür.
+Bu aşamada, analiz için hazırlanan veri setinin yapısı incelenmiştir. Değişken isimleri, veri tipleri ve gözlem sayısı kontrol edilmiştir.
 
 ```{r}
-trafik <- trafik %>%
-  clean_names()
-
-names(trafik)
+dplyr::glimpse(trafik)
 ```
 
-Burada, veri setindeki gerçek sütun adlarına göre gerekirse yeniden adlandırma yapılacaktır.
+Aşağıda temizlenmiş veri setinin ilk birkaç satırı gösterilmektedir.
 
 ```{r}
-# Örnek: gerçek sütun adlarına göre bunu uyarlayacağız
-# trafik <- trafik %>%
-#   rename(
-#     yil = ...,
-#     nufus = ...,
-#     arac_sayisi = ...,
-#     kaza_sayisi = ...,
-#     olu_sayisi = ...,
-#     yarali_sayisi = ...
-#   )
+kable(trafik, caption = "Temizlenmiş veri seti")
 ```
 
-## Türetilmiş Değişkenler
+Bu ilk inceleme sonucunda veri setinin yıllara göre düzenli gözlemler içerdiği ve temel trafik göstergelerini karşılaştırmalı biçimde incelemeye uygun olduğu görülmüştür.
 
-Yalnızca ham sayıları incelemek yerine, daha anlamlı karşılaştırmalar yapabilmek için bazı oran değişkenleri oluşturulmuştur.
+### Türetilmiş Değişkenler
+
+Sadece ham sayıları incelemek yeterli olmayacağı için, nüfus ve araç sayısına göre normalize edilmiş yeni göstergeler oluşturulmuştur.
 
 ```{r}
+#| code-fold: false
+
 trafik <- trafik %>%
   mutate(
     arac_1000_nufus = arac_sayisi / nufus * 1000,
     kaza_100000_nufus = kaza_sayisi / nufus * 100000,
-    kaza_10000_arac = kaza_sayisi / arac_sayisi * 10000
+    kaza_10000_arac = kaza_sayisi / arac_sayisi * 10000,
+    olu_100000_nufus = olu_sayisi / nufus * 100000,
+    yarali_100000_nufus = yarali_sayisi / nufus * 100000
   )
 ```
 
-Bu değişkenler sayesinde nüfus artışından ve araç sayısı artışından bağımsız olarak göreli değişim incelenebilecektir.
+Bu göstergeler sayesinde mutlak artışların yanında göreli risk düzeyi de değerlendirilebilmektedir.
 
-## Keşifsel Veri Analizi
+### Keşifsel Veri Analizi
+
+Bu bölümde Türkiye nüfusunun 2009 - 2024 yılları arasındaki değişimi, Türkiye'de bu yıllarda trafiğe kayıtlı araç sayısındaki değişim ve bu yıllarda meydana gelen kaza sayısı grafiksel olarak ifade edilmiştir.
 
 ### Yıllara Göre Nüfus Değişimi
 
 ```{r}
 ggplot(trafik, aes(x = yil, y = nufus)) +
   geom_line(linewidth = 1) +
-  geom_point() +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = trafik$yil) +
   scale_y_continuous(labels = label_number(big.mark = ".")) +
   labs(
-    title = "Yıllara Göre Nüfus Değişimi",
+    title = "Yıllara Göre Türkiye Nüfusu",
     x = "Yıl",
     y = "Nüfus"
-  )
+  ) +
+  theme_minimal()
 ```
 
-### Yıllara Göre Araç Sayısı Değişimi
+Bu grafik, 2009–2024 döneminde Türkiye nüfusunun genel artış eğilimini göstermektedir.
+
+### Yıllara Göre Trafiğe Kayıtlı Araç Sayısı
 
 ```{r}
 ggplot(trafik, aes(x = yil, y = arac_sayisi)) +
   geom_line(linewidth = 1) +
-  geom_point() +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = trafik$yil) +
   scale_y_continuous(labels = label_number(big.mark = ".")) +
   labs(
     title = "Yıllara Göre Trafiğe Kayıtlı Araç Sayısı",
     x = "Yıl",
     y = "Araç Sayısı"
-  )
+  ) +
+  theme_minimal()
 ```
 
-### Yıllara Göre Kaza Sayısı Değişimi
+Bu grafik, araç sayısının yıllar içinde nasıl değiştiğini göstermektedir.
+
+### Yıllara Göre Toplam Kaza Sayısı
 
 ```{r}
 ggplot(trafik, aes(x = yil, y = kaza_sayisi)) +
   geom_line(linewidth = 1) +
-  geom_point() +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = trafik$yil) +
   scale_y_continuous(labels = label_number(big.mark = ".")) +
   labs(
-    title = "Yıllara Göre Trafik Kaza Sayısı",
+    title = "Yıllara Göre Toplam Kaza Sayısı",
     x = "Yıl",
     y = "Kaza Sayısı"
+  ) +
+  theme_minimal()
+```
+
+Bu grafik, toplam kaza sayısındaki yıllık değişimi göstermektedir.
+
+### Birlikte Değişim Analizi
+
+```{r}
+trafik_endeks <- trafik %>%
+  mutate(
+    nufus_endeks = nufus / first(nufus) * 100,
+    arac_endeks = arac_sayisi / first(arac_sayisi) * 100,
+    kaza_endeks = kaza_sayisi / first(kaza_sayisi) * 100
   )
 ```
 
-## Oran Bazlı Analizler
+```{r}
+ggplot(trafik_endeks, aes(x = yil)) +
+  geom_line(aes(y = nufus_endeks, color = "Nüfus"), linewidth = 1.1) +
+  geom_line(aes(y = arac_endeks, color = "Araç Sayısı"), linewidth = 1.1) +
+  geom_line(aes(y = kaza_endeks, color = "Kaza Sayısı"), linewidth = 1.1) +
+  scale_x_continuous(breaks = trafik_endeks$yil) +
+  labs(
+    title = "2009=100 Endeksine Göre Nüfus, Araç Sayısı ve Kaza Sayısı",
+    x = "Yıl",
+    y = "Endeks Değeri",
+    color = "Değişken"
+  ) +
+  theme_minimal()
+```
+
+Üç temel değişkenin yıllar içindeki değişimini daha rahat kıyaslayabilmek için, bu grafikte değişkenler 2009 yılı 100 kabul edilerek endekslenmiştir. Böylece nüfus, araç sayısı ve kaza sayısının yıllar içindeki artış hızları aynı ölçekte karşılaştırılabilmiştir.
+
+### Oran Bazlı Analizler
+
+
 
 ### 100.000 Kişi Başına Kaza Sayısı
 
 ```{r}
 ggplot(trafik, aes(x = yil, y = kaza_100000_nufus)) +
   geom_line(linewidth = 1) +
-  geom_point() +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = trafik$yil) +
   labs(
     title = "100.000 Kişi Başına Kaza Sayısı",
     x = "Yıl",
-    y = "Kaza Oranı"
-  )
+    y = "Kaza Sayısı"
+  ) +
+  theme_minimal()
 ```
+
+Bu oran, nüfus artışından bağımsız olarak kaza yoğunluğunu görmeyi sağlar.
 
 ### 10.000 Araç Başına Kaza Sayısı
 
 ```{r}
 ggplot(trafik, aes(x = yil, y = kaza_10000_arac)) +
   geom_line(linewidth = 1) +
-  geom_point() +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = trafik$yil) +
   labs(
     title = "10.000 Araç Başına Kaza Sayısı",
     x = "Yıl",
-    y = "Kaza Oranı"
-  )
+    y = "Kaza Sayısı"
+  ) +
+  theme_minimal()
 ```
 
-## Değişkenler Arasındaki İlişki
+Bu grafik, araç sayısı artsa bile araç başına düşen kaza riskinin nasıl değiştiğini göstermektedir.
 
-### Araç Sayısı ve Kaza Sayısı İlişkisi
+### 100.000 Kişi Başına Ölüm Sayısı
+
+```{r}
+ggplot(trafik, aes(x = yil, y = olu_100000_nufus)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = trafik$yil) +
+  labs(
+    title = "100.000 Kişi Başına Ölüm Sayısı",
+    x = "Yıl",
+    y = "Ölüm Sayısı"
+  ) +
+  theme_minimal()
+```
+
+Bu grafik, kaza sayısından bağımsız olarak kaza başına düşen ölüm oranını ifade etmektedir.
+
+### 100.000 Kişi Başına Yaralı Sayısı
+
+```{r}
+ggplot(trafik, aes(x = yil, y = yarali_100000_nufus)) +
+  geom_line(linewidth = 1) +
+  geom_point(size = 2) +
+  scale_x_continuous(breaks = trafik$yil) +
+  labs(
+    title = "100.000 Kişi Başına Yaralı Sayısı",
+    x = "Yıl",
+    y = "Yaralı Sayısı"
+  ) +
+  theme_minimal()
+```
+
+Bu grafik, kaza sayısından bağımsız olarak kaza başına düşen yaralanma oranını ifade etmektedir.
+
+### Değişkenler Arasındaki İlişki
+
+Bu bölümde nüfus, araç sayısı ve kaza sayısındaki ilişki grafiksel olarak ifade edilerek incelenmiştir.
+
+### Araç Sayısı ile Kaza Sayısı İlişkisi
 
 ```{r}
 ggplot(trafik, aes(x = arac_sayisi, y = kaza_sayisi)) +
   geom_point(size = 3) +
-  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1) +
   scale_x_continuous(labels = label_number(big.mark = ".")) +
   scale_y_continuous(labels = label_number(big.mark = ".")) +
   labs(
     title = "Araç Sayısı ile Kaza Sayısı Arasındaki İlişki",
     x = "Araç Sayısı",
     y = "Kaza Sayısı"
-  )
+  ) +
+  theme_minimal()
 ```
 
-### Nüfus ve Kaza Sayısı İlişkisi
+Bu grafik, araç sayısı ile kaza sayısı arasında genel ilişkinin yönünü göstermektedir.
+
+### Nüfus ile Kaza Sayısı İlişkisi
 
 ```{r}
 ggplot(trafik, aes(x = nufus, y = kaza_sayisi)) +
   geom_point(size = 3) +
-  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1) +
   scale_x_continuous(labels = label_number(big.mark = ".")) +
   scale_y_continuous(labels = label_number(big.mark = ".")) +
   labs(
     title = "Nüfus ile Kaza Sayısı Arasındaki İlişki",
     x = "Nüfus",
     y = "Kaza Sayısı"
-  )
+  ) +
+  theme_minimal()
 ```
 
-## Bulgular ve Yorum
+### Bulgular ve Yorum
 
-Bu bölümde grafiklerden ve hesaplanan oranlardan elde edilen bulgular yorumlanacaktır. Özellikle araç sayısındaki artış ile kaza sayısındaki değişim aynı yönde ilerlemiyorsa, bunun olası nedenleri tartışılacaktır.
+Elde edilen bulgular değerlendirildiğinde, 2009–2024 döneminde Türkiye nüfusunun sürekli arttığı, ancak trafiğe kayıtlı araç sayısındaki artışın daha yüksek bir hızda gerçekleştiği görülmektedir. Buna karşılık kaza sayısı her yıl aynı doğrultuda artmamış, bazı yıllarda düşüşler ve dalgalanmalar gözlenmiştir.
 
-Örneğin: - yol altyapısındaki iyileşmeler, - araç güvenlik sistemlerinin gelişmesi, - trafik denetimlerinin artması, - sürücü davranışlarındaki değişim, - pandemi gibi olağanüstü dönemler
+Bu durum, araç sayısındaki artışın tek başına kaza sayısını açıklamak için yeterli olmadığını düşündürmektedir. Araç güvenlik teknolojilerindeki gelişmeler, yol altyapısındaki iyileşmeler, denetimlerin artması, sürücü davranışlarındaki değişimler ve olağanüstü dönemler bu farklılaşmayı açıklayabilecek unsurlar arasında yer almaktadır.
 
-kaza sayısındaki değişimleri açıklamada etkili olabilir.
+Özellikle oran bazlı göstergeler incelendiğinde, mutlak sayıların artmasına rağmen göreli riskin bazı dönemlerde sabit kaldığı ya da azaldığı görülebilir. Bu nedenle trafik güvenliğini değerlendirirken yalnızca toplam kaza sayısına değil, nüfus ve araç sayısına göre normalize edilmiş göstergelere de bakmak gerekmektedir.
 
-## Sonuç
+Buna ek olarak 2020 yılında nüfus ve araç sayısının parelel düzeyde artışı devam ederken kaza sayısında dramatik bir düşüş yaşandığı fark edilmiştir. Bunun durumun temel sebebi 2020 yılında Covid pandemisi nedeniyle getirilen sokağa çıkma yasaklarına bağlı olarak trafik yoğunluğunun düşmesi olarak yorumlanmıştır.
 
-Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus, araç sayısı ve trafik kazaları arasındaki ilişki incelenmiştir. Ham sayıların yanında oran bazlı göstergeler de değerlendirilerek trafik riskinin zaman içindeki değişimi daha anlamlı biçimde yorumlanmıştır.
+### Sonuç
 
-## Kullanılan Araçlar ve Not
+Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus, trafiğe kayıtlı araç sayısı ve trafik kazaları arasındaki ilişki incelenmiştir. Analiz sonucunda, araçlaşmanın nüfustan daha hızlı arttığı; buna karşın kaza sayısının aynı hızda artmadığı görülmüştür. Bu bulgu, trafik güvenliğinin yalnızca araç sayısına bağlı olmadığını, farklı yapısal ve davranışsal faktörlerin de etkili olduğunu göstermektedir.
+
+Sonuç olarak, trafik güvenliğine ilişkin değerlendirmelerde hem mutlak göstergelerin hem de oran bazlı göstergelerin birlikte kullanılması daha anlamlı sonuçlar vermektedir.
+
+### Kullanılan Araçlar ve Not
 
 Bu proje R programlama dili kullanılarak hazırlanmış, Quarto ile raporlanmış ve GitHub Pages üzerinde yayımlanmıştır.
 
-Yapay zekâ desteği kullanılan bölümlerde ilgili not ayrıca belirtilecektir.
+Bu çalışmada analiz sürecini desteklemek amacıyla yapay zekâ araçlarından yararlanılmıştır. Nihai değerlendirme, yorumlama ve yazım aşamaları tarafımızca gözden geçirilmiştir.
 
-**Projemizle ilgili güncellemelerden haberdar olmak için bu xxxxx bağlantısındaki proje sayfamızı takip edin.**
-
-(Aşağıdaki başlıklar örnek olarak verilmiştir; lütfen gerektiği şekilde düzenlemekten çekinmeyin.)
-
-# Proje Genel Bakış ve Kapsamı
-
-xxxxxx
-
-# Veri
-
-xxxxxx
-
-## Veri Kaynağı
-
-xxxxxx
-
-## Veri Hakkında Genel Bilgiler
-
-xxxxxx
-
-## Tercih Sebebi
-
-xxxxxx
-
-## Ön İşleme
-
-xxxxxx
-
-# Analiz
-
-xxxxxx
-
-## Keşifsel Veri Analizi
-
-xxxxxx
-
-## Trend Analizi
-
-xxxxxx
-
-## Model Uydurma
-
-xxxxxx
-
-## Sonuçlar
-
-xxxxxx
-
-# Sonuçlar ve Ana Çıkarımlar
-
-xxxxxx
+### Hazırlayanlar
+#### Erdem ASLANYILMAZ
+#### Muhammed Talha BÜYÜK
+#### Oğuzhan ŞENEL

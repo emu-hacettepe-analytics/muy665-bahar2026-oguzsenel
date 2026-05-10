@@ -18,7 +18,7 @@ website:
           - text: Portfolyo
             href: portfolyo.qmd
           - text: Proje
-            href: project.qmd
+            href: proje.qmd
             
     tools:
       - icon: github
@@ -36,13 +36,13 @@ website:
         - portfolyo.qmd
         - portfolyo/calisma1.qmd
         - portfolyo/calisma2.qmd  
-        
 
   page-navigation: true
   back-to-top-navigation: true
   page-footer:
     center: "Hacettepe IE - MUY665 - Bahar 2026" 
     border: true
+
 format:
   html:
     toc: true
@@ -50,6 +50,4 @@ format:
     theme: simplex
     css: styles.css
 
-
 editor: visual
-
