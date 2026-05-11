@@ -30,7 +30,7 @@ Projede kullanılan temel veri seti TÜİK kaynaklı yıllık trafik verilerinde
 
 ### Gerekli Paketler
 
-Bu proje kapsamında (readx1), (dplyr), (ggplot2), (scales), (knitr) kütüphaneleri kullanılmıştır.
+Bu proje kapsamında readxl, dplyr, ggplot2, scales, knitr kütüphaneleri kullanılmıştır.
 
 ```{r}
 library(readxl)
@@ -312,19 +312,24 @@ ggplot(trafik, aes(x = nufus, y = kaza_sayisi)) +
 
 ### Bulgular ve Yorum
 
-Elde edilen bulgular değerlendirildiğinde, 2009–2024 döneminde Türkiye nüfusunun sürekli arttığı, ancak trafiğe kayıtlı araç sayısındaki artışın daha yüksek bir hızda gerçekleştiği görülmektedir. Buna karşılık kaza sayısı her yıl aynı doğrultuda artmamış, bazı yıllarda düşüşler ve dalgalanmalar gözlenmiştir.
+Elde edilen bulgular incelendiğinde, 2009–2024 döneminde Türkiye nüfusunun düzenli olarak arttığı, ancak trafiğe kayıtlı araç sayısındaki artışın daha yüksek olduğu görülmektedir. Buna rağmen trafik kazaları her yıl aynı şekilde artmamış, bazı yıllarda düşüş ve dalgalanmalar yaşanmıştır. Bu durum, trafik kazalarının yalnızca araç sayısıyla açıklanamayacağını göstermektedir.
 
-Bu durum, araç sayısındaki artışın tek başına kaza sayısını açıklamak için yeterli olmadığını düşündürmektedir. Araç güvenlik teknolojilerindeki gelişmeler, yol altyapısındaki iyileşmeler, denetimlerin artması, sürücü davranışlarındaki değişimler ve olağanüstü dönemler bu farklılaşmayı açıklayabilecek unsurlar arasında yer almaktadır.
+Grafikler değerlendirildiğinde, araç sayısı sürekli artmasına rağmen kaza ve ölüm oranlarının aynı hızda yükselmediği dikkat çekmektedir. Bu durumun; araç güvenlik sistemlerindeki gelişmeler, yol altyapısındaki iyileştirmeler, trafik denetimlerinin artması ve sürücü davranışlarındaki değişimlerle ilişkili olabileceği düşünülmektedir.
 
-Özellikle oran bazlı göstergeler incelendiğinde, mutlak sayıların artmasına rağmen göreli riskin bazı dönemlerde sabit kaldığı ya da azaldığı görülebilir. Bu nedenle trafik güvenliğini değerlendirirken yalnızca toplam kaza sayısına değil, nüfus ve araç sayısına göre normalize edilmiş göstergelere de bakmak gerekmektedir.
+Oran bazlı göstergeler incelendiğinde, toplam değerler artsa bile bazı dönemlerde göreli riskin sabit kaldığı veya azaldığı görülmektedir. Bu nedenle trafik güvenliğini değerlendirirken yalnızca toplam kaza sayısına değil, nüfus ve araç sayısına göre normalize edilmiş verilere de bakılması gerekmektedir.
 
-Buna ek olarak 2020 yılında nüfus ve araç sayısının parelel düzeyde artışı devam ederken kaza sayısında dramatik bir düşüş yaşandığı fark edilmiştir. Bunun durumun temel sebebi 2020 yılında Covid pandemisi nedeniyle getirilen sokağa çıkma yasaklarına bağlı olarak trafik yoğunluğunun düşmesi olarak yorumlanmıştır.
+2020 yılı verileri ayrıca dikkat çekmektedir. Covid-19 pandemisi nedeniyle uygulanan kısıtlamalar sonucunda trafik yoğunluğu azalmış ve buna bağlı olarak trafik kazalarında belirgin bir düşüş görülmüştür. Bu durum, trafik yoğunluğu ile kaza sayısı arasında doğrudan bir ilişki olduğunu göstermektedir.
+
+Genel olarak değerlendirildiğinde, Türkiye’de araç sayısındaki hızlı artışa rağmen trafik güvenliği göstergelerinin aynı ölçüde kötüleşmemesi; altyapı yatırımları, denetim mekanizmaları ve güvenlik teknolojilerinin etkili olduğunu düşündürmektedir.
 
 ### Sonuç
 
-Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus, trafiğe kayıtlı araç sayısı ve trafik kazaları arasındaki ilişki incelenmiştir. Analiz sonucunda, araçlaşmanın nüfustan daha hızlı arttığı; buna karşın kaza sayısının aynı hızda artmadığı görülmüştür. Bu bulgu, trafik güvenliğinin yalnızca araç sayısına bağlı olmadığını, farklı yapısal ve davranışsal faktörlerin de etkili olduğunu göstermektedir.
+Bu projede, Türkiye’de 2009–2024 yılları arasında nüfus, trafiğe kayıtlı araç sayısı ve trafik kazaları arasındaki ilişki incelenmiştir. Analiz sonucunda araç sayısının nüfustan daha hızlı arttığı, ancak trafik kazalarının aynı hızda artmadığı görülmüştür.
 
-Sonuç olarak, trafik güvenliğine ilişkin değerlendirmelerde hem mutlak göstergelerin hem de oran bazlı göstergelerin birlikte kullanılması daha anlamlı sonuçlar vermektedir.
+Elde edilen bulgular, trafik güvenliğinin yalnızca araç sayısına bağlı olmadığını; yol altyapısı, araç teknolojileri, denetimler ve sürücü davranışları gibi farklı faktörlerden de etkilendiğini göstermektedir. Özellikle oran bazlı göstergeler incelendiğinde, bazı dönemlerde toplam değerler artsa bile göreli riskin azaldığı görülmüştür.
+Pandemi döneminde trafik yoğunluğunun azalmasıyla birlikte kaza sayılarında da düşüş yaşanması, trafik hareketliliği ile kaza oranları arasındaki ilişkiyi desteklemektedir.
+
+Sonuç olarak, Türkiye’de artan araçlaşmaya rağmen trafik güvenliği göstergelerinin belirli ölçüde kontrol altında tutulabildiği görülmektedir. Ancak trafik kazalarının azaltılması için denetimlerin, sürücü eğitimlerinin ve altyapı çalışmalarının devam etmesi gerektiği değerlendirilmektedir.
 
 ### Kullanılan Araçlar ve Not
 
