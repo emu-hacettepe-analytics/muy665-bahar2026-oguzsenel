@@ -3,6 +3,6 @@ title: "Analitik sayfama hoş geldiniz"
 sidebar: false 
 ---
 
-Merhaba ben Oğuz! MUY660-İş Analitiği dersi sayfama hoş geldiniz.
+Merhaba ben Oğuz! MUY665-İş Analitiği dersi sayfama hoş geldiniz.
 
 Bu sayfada iş analitiği çalışmalarımı paylaşıyorum.
